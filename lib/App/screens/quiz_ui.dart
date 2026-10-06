@@ -75,24 +75,111 @@ class _SplashState extends State<SplashScreen>{
  ])));
 }
 
-class Introduction extends StatefulWidget{const Introduction({super.key});@override State<Introduction> createState()=>_IntroState();}
-class _IntroState extends State<Introduction>{
- int page=0;final data=const[
-  ['Test Your Knowledge','Challenge yourself with quizzes across science, math, history and more, fully offline without interruptions.',Icons.lightbulb_outline],
-  ['Build Your Streak','Answer consistently, earn XP and turn short practice sessions into lasting learning momentum.',Icons.local_fire_department],
-  ['Track Your Progress','See accuracy, mastery and quiz history locally on your device.',Icons.trending_up],
- ];
- @override Widget build(BuildContext c){final d=data[page];return Scaffold(backgroundColor:QColors.bg,body:SafeArea(child:Padding(padding:const EdgeInsets.all(20),child:Column(children:[
-  Row(children:[const Icon(Icons.local_fire_department,color:QColors.amber),const SizedBox(width:7),const Text('QuizMaster',style:TextStyle(fontWeight:FontWeight.w900,fontSize:18)),const Spacer(),TextButton(onPressed:()=>Navigator.pushReplacementNamed(c,Routes.languageSelection),child:const Text('Skip'))]),
-  const SizedBox(height:28),Row(mainAxisAlignment:MainAxisAlignment.center,children:List.generate(3,(i)=>AnimatedContainer(duration:const Duration(milliseconds:200),margin:const EdgeInsets.symmetric(horizontal:3),width:i==page?26:8,height:8,decoration:BoxDecoration(color:i==page?QColors.p:QColors.border,borderRadius:BorderRadius.circular(8))))),
-  const Spacer(),Container(width:220,height:220,decoration:const BoxDecoration(color:QColors.high,shape:BoxShape.circle),child:Icon(d[2] as IconData,size:94,color:QColors.p)),
-  const SizedBox(height:35),Text(d[0] as String,textAlign:TextAlign.center,style:const TextStyle(fontSize:28,fontWeight:FontWeight.w900,color:QColors.text)),
-  const SizedBox(height:12),Text(d[1] as String,textAlign:TextAlign.center,style:const TextStyle(fontSize:15,height:1.5,color:QColors.muted)),
-  const Spacer(),Row(children:[
-   if(page>0)Expanded(child:OutlinedButton(onPressed:()=>setState(()=>page--),child:const Text('Previous'))),
-   if(page>0)const SizedBox(width:10),Expanded(child:QButton(text:page==2?'Get Started':'Next',onTap:(){if(page==2)Navigator.pushReplacementNamed(c,Routes.languageSelection);else setState(()=>page++);}))
-  ])
- ])));}
+class Introduction extends StatefulWidget {
+  const Introduction({super.key});
+  @override
+  State<Introduction> createState() => _IntroState();
+}
+
+class _IntroState extends State<Introduction> {
+  int page = 0;
+
+  final data = const [
+    ['Test Your Knowledge', 'Challenge yourself with quizzes across science, math, history and more, fully offline without interruptions.', Icons.lightbulb_outline],
+    ['Build Your Streak', 'Answer consistently, earn XP and turn short practice sessions into lasting learning momentum.', Icons.local_fire_department],
+    ['Track Your Progress', 'See accuracy, mastery and quiz history locally on your device.', Icons.trending_up],
+  ];
+
+  @override
+  Widget build(BuildContext c) {
+    final d = data[page];
+
+    return Scaffold(
+      backgroundColor: QColors.bg,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.local_fire_department, color: QColors.amber),
+                  const SizedBox(width: 7),
+                  const Text('QuizMaster', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () => Navigator.pushReplacementNamed(c, Routes.languageSelection),
+                    child: const Text('Skip'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 28),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  3,
+                  (i) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    width: i == page ? 26 : 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: i == page ? QColors.p : QColors.border,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                width: 220,
+                height: 220,
+                decoration: const BoxDecoration(color: QColors.high, shape: BoxShape.circle),
+                child: Icon(d[2] as IconData, size: 94, color: QColors.p),
+              ),
+              const SizedBox(height: 35),
+              Text(
+                d[0] as String,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: QColors.text),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                d[1] as String,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 15, height: 1.5, color: QColors.muted),
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  if (page > 0)
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () => setState(() => page--),
+                        child: const Text('Previous'),
+                      ),
+                    ),
+                  if (page > 0) const SizedBox(width: 10),
+                  Expanded(
+                    child: QButton(
+                      text: page == 2 ? 'Get Started' : 'Next',
+                      onTap: () {
+                        if (page == 2) {
+                          Navigator.pushReplacementNamed(c, Routes.languageSelection);
+                        } else {
+                          setState(() => page++);
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class LanguageSelection extends StatefulWidget{const LanguageSelection({super.key});@override State<LanguageSelection> createState()=>_LangState();}
@@ -182,23 +269,228 @@ const questions=[
  Question('Which force keeps planets in orbit around the Sun?',['Magnetism','Friction','Gravity','Electricity'],2),
 ];
 
-class QuizPlay extends StatefulWidget{const QuizPlay({super.key});@override State<QuizPlay> createState()=>_PlayState();}
-class _PlayState extends State<QuizPlay>{int i=0;int? selected;bool answered=false;
- void pick(int x){if(answered)return;setState(()=>selected=x);setState(()=>answered=true);}
- void next(){if(!answered)return;if(i==questions.length-1){Navigator.pushReplacementNamed(context,Routes.quizResult);return;}setState((){i++;selected=null;answered=false;});}
- @override Widget build(BuildContext c){final x=questions[i];return Scaffold(backgroundColor:QColors.bg,body:SafeArea(child:Padding(padding:const EdgeInsets.fromLTRB(18,10,18,18),child:Column(children:[
-  Row(children:[IconButton(onPressed:()=>Navigator.pop(c),icon:const Icon(Icons.close)),Expanded(child:Center(child:Text('Question '+(i+1).toString()+' of 10',style:const TextStyle(fontWeight:FontWeight.w800)))),const Row(children:[Icon(Icons.timer_outlined,size:18),SizedBox(width:4),Text('09:32',style:TextStyle(fontWeight:FontWeight.w800))])]),
-  ClipRRect(borderRadius:BorderRadius.circular(8),child:LinearProgressIndicator(value:(i+1)/10,minHeight:8,color:QColors.p,backgroundColor:QColors.high)),const SizedBox(height:15),
-  Row(children:[_pill(Icons.public,'Astronomy & Space',QColors.high,QColors.p),const Spacer(),_pill(Icons.local_fire_department,'3 Streak',const Color(0xFFFFF1D6),QColors.amber)]),const SizedBox(height:14),
-  Expanded(child:ListView(children:[
-   QCard(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(x.q,style:const TextStyle(fontSize:23,height:1.25,fontWeight:FontWeight.w900)),const SizedBox(height:7),const Text('Select one option to confirm your answer.',style:TextStyle(color:QColors.muted))])),
-   const SizedBox(height:12),...List.generate(4,(n)=>Padding(padding:const EdgeInsets.only(bottom:9),child:_option(n,x.a[n],x.correct))),
-   if(answered)QCard(color:selected==x.correct?const Color(0xFFE6F7F0):const Color(0xFFFFEDEC),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(selected==x.correct?Icons.check_circle:Icons.info,color:selected==x.correct?QColors.green:QColors.red),const SizedBox(width:8),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(selected==x.correct?'Well done! +50 XP':'Keep learning',style:const TextStyle(fontWeight:FontWeight.w900)),const SizedBox(height:3),Text(selected==x.correct?'That is the correct answer.':'The correct answer is '+x.a[x.correct]+'.',style:const TextStyle(fontSize:11,color:QColors.muted))]))]))
-  ])),
-  const SizedBox(height:8),Row(children:[Expanded(child:OutlinedButton(onPressed:()=>next(),child:const Text('Skip'))),const SizedBox(width:10),Expanded(flex:2,child:QButton(text:i==9?'Finish':'Next Question',icon:Icons.arrow_forward,onTap:answered?next:null))])
- ])));}
- Widget _pill(IconData i,String t,Color b,Color f)=>Container(padding:const EdgeInsets.symmetric(horizontal:10,vertical:7),decoration:BoxDecoration(color:b,borderRadius:BorderRadius.circular(20)),child:Row(children:[Icon(i,size:15,color:f),const SizedBox(width:5),Text(t,style:const TextStyle(fontSize:10,fontWeight:FontWeight.w800))]));
- Widget _option(int n,String text,int correct){final sel=selected==n,good=answered&&n==correct,bad=answered&&sel&&n!=correct;final b=good?QColors.green:bad?QColors.red:sel?QColors.p:QColors.border;final bg=good?const Color(0xFFE6F7F0):bad?const Color(0xFFFFEDEC):sel?const Color(0xFFEEF0FF):Colors.white;return InkWell(onTap:()=>pick(n),borderRadius:BorderRadius.circular(16),child:Container(padding:const EdgeInsets.symmetric(horizontal:14,vertical:14),decoration:BoxDecoration(color:bg,borderRadius:BorderRadius.circular(16),border:Border.all(color:b,width:sel||good?1.6:1)),child:Row(children:[Container(width:34,height:34,alignment:Alignment.center,decoration:BoxDecoration(shape:BoxShape.circle,border:Border.all(color:b)),child:Text(String.fromCharCode(65+n),style:const TextStyle(fontWeight:FontWeight.w900))),const SizedBox(width:11),Expanded(child:Text(text,style:const TextStyle(fontWeight:FontWeight.w700))),if(good)const Icon(Icons.check_circle,color:QColors.green)else if(bad)const Icon(Icons.cancel,color:QColors.red)])));}
+class QuizPlay extends StatefulWidget {
+  const QuizPlay({super.key});
+  @override
+  State<QuizPlay> createState() => _PlayState();
+}
+
+class _PlayState extends State<QuizPlay> {
+  int i = 0;
+  int? selected;
+  bool answered = false;
+
+  void pick(int x) {
+    if (answered) return;
+    setState(() {
+      selected = x;
+      answered = true;
+    });
+  }
+
+  void next() {
+    if (!answered) return;
+    if (i == questions.length - 1) {
+      Navigator.pushReplacementNamed(context, Routes.quizResult);
+      return;
+    }
+    setState(() {
+      i++;
+      selected = null;
+      answered = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext c) {
+    final x = questions[i];
+
+    return Scaffold(
+      backgroundColor: QColors.bg,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 10, 18, 18),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(onPressed: () => Navigator.pop(c), icon: const Icon(Icons.close)),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Question ${i + 1} of 10',
+                        style: const TextStyle(fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                  ),
+                  const Row(
+                    children: [
+                      Icon(Icons.timer_outlined, size: 18),
+                      SizedBox(width: 4),
+                      Text('09:32', style: TextStyle(fontWeight: FontWeight.w800)),
+                    ],
+                  ),
+                ],
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: LinearProgressIndicator(
+                  value: (i + 1) / 10,
+                  minHeight: 8,
+                  color: QColors.p,
+                  backgroundColor: QColors.high,
+                ),
+              ),
+              const SizedBox(height: 15),
+              Row(
+                children: [
+                  _pill(Icons.public, 'Astronomy & Space', QColors.high, QColors.p),
+                  const Spacer(),
+                  _pill(Icons.local_fire_department, '3 Streak', const Color(0xFFFFF1D6), QColors.amber),
+                ],
+              ),
+              const SizedBox(height: 14),
+              Expanded(
+                child: ListView(
+                  children: [
+                    QCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(x.q, style: const TextStyle(fontSize: 23, height: 1.25, fontWeight: FontWeight.w900)),
+                          const SizedBox(height: 7),
+                          const Text('Select one option to confirm your answer.', style: TextStyle(color: QColors.muted)),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    ...List.generate(
+                      4,
+                      (n) => Padding(
+                        padding: const EdgeInsets.only(bottom: 9),
+                        child: _option(n, x.a[n], x.correct),
+                      ),
+                    ),
+                    if (answered)
+                      QCard(
+                        color: selected == x.correct ? const Color(0xFFE6F7F0) : const Color(0xFFFFEDEC),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              selected == x.correct ? Icons.check_circle : Icons.info,
+                              color: selected == x.correct ? QColors.green : QColors.red,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    selected == x.correct ? 'Well done! +50 XP' : 'Keep learning',
+                                    style: const TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  const SizedBox(height: 3),
+                                  Text(
+                                    selected == x.correct
+                                        ? 'That is the correct answer.'
+                                        : 'The correct answer is ${x.a[x.correct]}.',
+                                    style: const TextStyle(fontSize: 11, color: QColors.muted),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: next,
+                      child: const Text('Skip'),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    flex: 2,
+                    child: QButton(
+                      text: i == 9 ? 'Finish' : 'Next Question',
+                      icon: Icons.arrow_forward,
+                      onTap: answered ? next : null,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _pill(IconData icon, String t, Color bg, Color fg) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(20)),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: fg, size: 15),
+          const SizedBox(width: 5),
+          Text(t, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800)),
+        ],
+      ),
+    );
+  }
+
+  Widget _option(int n, String text, int correct) {
+    final sel = selected == n;
+    final good = answered && n == correct;
+    final bad = answered && sel && n != correct;
+    final b = good ? QColors.green : bad ? QColors.red : sel ? QColors.p : QColors.border;
+    final bg = good
+        ? const Color(0xFFE6F7F0)
+        : bad
+            ? const Color(0xFFFFEDEC)
+            : sel
+                ? const Color(0xFFEEF0FF)
+                : Colors.white;
+
+    return InkWell(
+      onTap: () => pick(n),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        decoration: BoxDecoration(
+          color: bg,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: b, width: sel || good ? 1.6 : 1),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 34,
+              height: 34,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: b)),
+              child: Text(String.fromCharCode(65 + n), style: const TextStyle(fontWeight: FontWeight.w900)),
+            ),
+            const SizedBox(width: 11),
+            Expanded(child: Text(text, style: const TextStyle(fontWeight: FontWeight.w700))),
+            if (good)
+              const Icon(Icons.check_circle, color: QColors.green)
+            else if (bad)
+              const Icon(Icons.cancel, color: QColors.red),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class QuizResult extends StatelessWidget{const QuizResult({super.key});
@@ -270,12 +562,99 @@ class _SettingsState extends State<Settings>{bool sound=true,haptic=true,feedbac
  void _dialog(BuildContext c,String title)=>showDialog(context:c,builder:(_)=>AlertDialog(title:Text(title),content:const Text('UI-only action for now. No data is changed.'),actions:[TextButton(onPressed:()=>Navigator.pop(c),child:const Text('Cancel')),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('OK'))]));
 }
 
-class HowToPlay extends StatelessWidget{const HowToPlay({super.key});
- @override Widget build(BuildContext c)=>QShell(title:'How to Play',back:true,child:ListView(padding:const EdgeInsets.fromLTRB(20,8,20,28),children:[
-  const QCard(color:QColors.high,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Row(children:[Icon(Icons.school,color:QColors.p),SizedBox(width:7),Text('Beginner Guide',style:TextStyle(fontWeight:FontWeight.w900))]),SizedBox(height:10),Text('Master the game in 6 simple steps',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900)),SizedBox(height:6),Text('Everything you need to know to practice smart, build momentum, and improve.',style:TextStyle(color:QColors.muted))])),const SizedBox(height:12),
-  ...[['1','Choose a Subject','Select from Mathematics, Science, History, and more.',Icons.category],['2','Customize Your Quiz','Pick question count, difficulty and timed or untimed preferences.',Icons.tune],['3','Answer Questions','Tap one of the 4 text choices before time expires.',Icons.touch_app],['4','Instant Feedback','Learn immediately from clear explanations.',Icons.check_circle],['5','Review Your Results','Inspect score, speed, accuracy and topic breakdowns.',Icons.insights],['6','Track Improvement','Watch subject mastery grow in Stats and History.',Icons.trending_up]].map((x)=>Padding(padding:const EdgeInsets.only(bottom:9),child:QCard(child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Container(width:34,height:34,alignment:Alignment.center,decoration:const BoxDecoration(color:QColors.p,shape:BoxShape.circle),child:Text(x[0] as String,style:const TextStyle(color:Colors.white,fontWeight:FontWeight.w900))),const SizedBox(width:10),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Row(children:[Icon(x[3] as IconData,color:QColors.p,size:18),const SizedBox(width:5),Text(x[1] as String,style:const TextStyle(fontWeight:FontWeight.w900))]),const SizedBox(height:4),Text(x[2] as String,style:const TextStyle(fontSize:11,color:QColors.muted))]))]))),
-  const QCard(color:Color(0xFFFFF5DE),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(Icons.lightbulb,color:QColors.amber),SizedBox(width:8),Expanded(child:Text('Tip: You can practice untimed quizzes to study at your own pace without pressure.',style:TextStyle(fontWeight:FontWeight.w700)))])),const SizedBox(height:15),QButton(text:'Try a Practice Quiz',icon:Icons.arrow_forward,onTap:()=>Navigator.pushNamed(c,Routes.subjectSelection))
- ]));
+class HowToPlay extends StatelessWidget {
+  const HowToPlay({super.key});
+
+  @override
+  Widget build(BuildContext c) => QShell(
+        title: 'How to Play',
+        back: true,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 28),
+          children: [
+            const QCard(
+              color: QColors.high,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.school, color: QColors.p),
+                      SizedBox(width: 7),
+                      Text('Beginner Guide', style: TextStyle(fontWeight: FontWeight.w900)),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text('Master the game in 6 simple steps', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
+                  SizedBox(height: 6),
+                  Text('Everything you need to know to practice smart, build momentum, and improve.', style: TextStyle(color: QColors.muted)),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            ...[
+              ['1', 'Choose a Subject', 'Select from Mathematics, Science, History, and more.', Icons.category],
+              ['2', 'Customize Your Quiz', 'Pick question count, difficulty and timed or untimed preferences.', Icons.tune],
+              ['3', 'Answer Questions', 'Tap one of the 4 text choices before time expires.', Icons.touch_app],
+              ['4', 'Instant Feedback', 'Learn immediately from clear explanations.', Icons.check_circle],
+              ['5', 'Review Your Results', 'Inspect score, speed, accuracy and topic breakdowns.', Icons.insights],
+              ['6', 'Track Improvement', 'Watch subject mastery grow in Stats and History.', Icons.trending_up],
+            ].map(
+              (x) => Padding(
+                padding: const EdgeInsets.only(bottom: 9),
+                child: QCard(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 34,
+                        height: 34,
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(color: QColors.p, shape: BoxShape.circle),
+                        child: Text(x[0] as String, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w900)),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(x[3] as IconData, color: QColors.p, size: 18),
+                                const SizedBox(width: 5),
+                                Text(x[1] as String, style: const TextStyle(fontWeight: FontWeight.w900)),
+                              ],
+                            ),
+                            const SizedBox(height: 4),
+                            Text(x[2] as String, style: const TextStyle(fontSize: 11, color: QColors.muted)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const QCard(
+              color: Color(0xFFFFF5DE),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.lightbulb, color: QColors.amber),
+                  SizedBox(width: 8),
+                  Expanded(child: Text('Tip: You can practice untimed quizzes to study at your own pace without pressure.', style: TextStyle(fontWeight: FontWeight.w700))),
+                ],
+              ),
+            ),
+            const SizedBox(height: 15),
+            QButton(
+              text: 'Try a Practice Quiz',
+              icon: Icons.arrow_forward,
+              onTap: () => Navigator.pushNamed(c, Routes.subjectSelection),
+            ),
+          ],
+        ),
+      );
 }
 
 class About extends StatelessWidget{const About({super.key});
