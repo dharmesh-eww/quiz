@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuizMaster - Home Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-md": ["19px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Container Safe Frame -->
+<div class="w-full max-w-md bg-background min-h-screen relative flex flex-col pb-28">
+<!-- Top App Bar (Shared Component Execution: Anchor & State) -->
+<header class="bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline-md text-headline-md shadow-sm border border-outline-variant">
+            🎓
+          </div>
+<div>
+<h1 class="text-headline-md font-headline-md text-on-surface leading-tight">Hello, Scholar 👋</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Ready to elevate your rank?</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Pill Component -->
+<div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-space-sm py-1 rounded-full shadow-sm border border-secondary-container/40">
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm font-bold text-on-secondary-fixed">5 Day</span>
+</div>
+<!-- Settings Icon Button -->
+<button aria-label="Settings" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-primary active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-space-md space-y-space-lg">
+<!-- Hero Banner Card: Gamified Vibrant Card -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary via-primary-container to-surface-tint p-space-lg text-on-primary shadow-lg shadow-primary/20">
+<!-- Playful Background Geometric Accents -->
+<div class="absolute -right-6 -bottom-8 w-36 h-36 bg-surface-container-lowest/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="absolute top-2 right-12 text-on-primary/20 select-none pointer-events-none transform rotate-12 text-4xl font-headline-xl">✨</div>
+<div class="absolute bottom-10 right-4 text-on-primary/15 select-none pointer-events-none transform -rotate-12 text-3xl font-headline-xl">⚡</div>
+<div class="absolute top-8 right-28 text-on-primary/20 select-none pointer-events-none text-2xl">💡</div>
+<div class="relative z-10 max-w-[75%]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-lowest/20 backdrop-blur-md mb-2 border border-surface-container-lowest/25">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-surface-bright">Daily Quest Active</span>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-surface-bright mb-1 tracking-tight">Ready for a Quiz?</h2>
+<p class="text-body-sm font-body-sm text-surface-variant mb-space-md">Challenge yourself and boost your brain power today.</p>
+<button class="inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-primary hover:bg-surface-bright active:scale-95 transition-transform duration-150 px-5 py-3 rounded-full font-label-lg text-label-lg shadow-md font-bold">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Start Quiz</span>
+</button>
+</div>
+</section>
+<!-- Quick Stats Bento Grid (4 compact tactile cards) -->
+<section>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Stat 1: Quizzes -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Completed</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold">12</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Quizzes</div>
+</div>
+</div>
+<!-- Stat 2: Accuracy -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-tertiary/40 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Accuracy</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">target</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold text-tertiary">86%</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Overall Rate</div>
+</div>
+</div>
+<!-- Stat 3: Total Questions -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Mastered</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold">920</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Questions</div>
+</div>
+</div>
+<!-- Stat 4: Best Score -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-secondary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">High Record</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold text-secondary">94%</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Best Score</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Explore Subjects Section -->
+<section class="space-y-space-sm">
+<div class="flex justify-between items-baseline">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Explore Subjects</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Pick a discipline to conquer</p>
+</div>
+<a class="text-label-md font-label-md text-primary font-bold hover:underline inline-flex items-center gap-0.5" href="#">
+            View All
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<!-- Horizontal Scrollable Cards -->
+<div class="flex gap-3 overflow-x-auto custom-scrollbar pb-2 pt-1 -mx-margin-mobile px-margin-mobile">
+<!-- Mathematics -->
+<div class="flex-none w-40 bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/70 shadow-sm hover:shadow-md transition-shadow active:scale-95 duration-150 cursor-pointer">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-xl mb-3 shadow-inner">
+              📐
+            </div>
+<div class="font-label-lg text-label-lg text-on-surface">Mathematics</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-3">120 Qs</div>
+<!-- Mini Progress Track -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 72%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span>Progress</span>
+<span class="font-bold text-primary">72%</span>
+</div>
+</div>
+<!-- Science -->
+<div class="flex-none w-40 bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/70 shadow-sm hover:shadow-md transition-shadow active:scale-95 duration-150 cursor-pointer">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-xl mb-3 shadow-inner">
+              🔬
+            </div>
+<div class="font-label-lg text-label-lg text-on-surface">Science</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-3">180 Qs</div>
+<!-- Mini Progress Track -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 85%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span>Progress</span>
+<span class="font-bold text-tertiary">85%</span>
+</div>
+</div>
+<!-- History -->
+<div class="flex-none w-40 bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/70 shadow-sm hover:shadow-md transition-shadow active:scale-95 duration-150 cursor-pointer">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-xl mb-3 shadow-inner">
+              🏛️
+            </div>
+<div class="font-label-lg text-label-lg text-on-surface">History</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-3">95 Qs</div>
+<!-- Mini Progress Track -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 48%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span>Progress</span>
+<span class="font-bold text-secondary">48%</span>
+</div>
+</div>
+<!-- Geography -->
+<div class="flex-none w-40 bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/70 shadow-sm hover:shadow-md transition-shadow active:scale-95 duration-150 cursor-pointer">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-xl mb-3 shadow-inner">
+              🌍
+            </div>
+<div class="font-label-lg text-label-lg text-on-surface">Geography</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-3">110 Qs</div>
+<!-- Mini Progress Track -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span>Progress</span>
+<span class="font-bold text-primary-container">60%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Quiz Card Component -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-on-surface">Recent Quiz</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Last activity</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/70 shadow-sm hover:shadow transition-shadow">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-2xl shrink-0">
+                🧬
+              </div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="text-label-lg font-label-lg text-on-surface">Science — Biology</h4>
+<span class="px-2 py-0.5 text-[11px] font-label-sm bg-surface-container text-tertiary rounded-full font-bold">Passed</span>
+</div>
+<div class="flex items-center gap-3 text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                    Oct 6
+                  </span>
+<span>•</span>
+<span class="font-medium text-on-surface">Score: 8/10</span>
+<span>•</span>
+<span class="text-tertiary font-bold">80% Accuracy</span>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors shrink-0" href="#">
+              View Result
+            </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Execution) -->
+<!-- Destination count: 5 | Labels: Home (Active), Subjects, Stats, History, Settings -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-md py-space-xs max-w-md mx-auto floating rounded-full mx-margin-mobile mb-margin-mobile bg-surface-container-lowest dark:bg-inverse-surface shadow-lg dark:shadow-none border border-outline-variant dark:border-outline">
+<!-- Nav Item 1: Home (Active) -->
+<button aria-label="Home" class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-bold hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 py-1 px-2">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+<!-- Active indicator dot -->
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-0.5"></span>
+</button>
+<!-- Nav Item 2: Subjects -->
+<button aria-label="Subjects" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 py-1 px-2">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Subjects</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- Nav Item 3: Stats -->
+<button aria-label="Stats" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 py-1 px-2">
+<span class="material-symbols-outlined text-[24px]">bar_chart</span>
+<span class="text-label-sm font-label-sm mt-0.5">Stats</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- Nav Item 4: History -->
+<button aria-label="History" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 py-1 px-2">
+<span class="material-symbols-outlined text-[24px]">history</span>
+<span class="text-label-sm font-label-sm mt-0.5">History</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- Nav Item 5: Settings -->
+<button aria-label="Settings" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 py-1 px-2">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">Settings</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About QuizMaster</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "headline-lg": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "headline-md": ["19px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen flex justify-center">
+<main class="w-full max-w-md bg-surface min-h-screen flex flex-col pb-space-xl">
+<!-- TopAppBar (Task-Focused with leading back arrow, BottomNavBar suppressed per Destination Rule) -->
+<header class="bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">
+          About QuizMaster
+        </h1>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-secondary-container hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+</header>
+<div class="px-margin-mobile flex-1 flex flex-col space-y-space-lg pt-space-md">
+<!-- Brand Emblem & Identity Header -->
+<section class="flex flex-col items-center text-center pt-space-xs">
+<div class="relative flex items-center justify-center mb-space-sm">
+<div class="w-24 h-24 rounded-3xl bg-primary-fixed flex items-center justify-center shadow-lg shadow-primary/20 ring-4 ring-surface-container-high transition-transform hover:scale-105 duration-200">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-base" data-icon="offline_bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">offline_bolt</span>
+</div>
+</div>
+<h2 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">QuizMaster</h2>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary text-label-sm font-label-sm mt-1.5 border border-outline-variant/60">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>v2.4.0 (Offline Build)</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant mt-2 font-medium">Learn. Play. Master.</p>
+</section>
+<!-- Mission / Description Card -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/50 shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-surface-container-high rounded-full opacity-60 pointer-events-none"></div>
+<div class="flex items-start gap-3 relative z-10">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="info" data-weight="fill" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+            QuizMaster is an offline-first educational quiz platform designed to empower students and curious minds to test and build knowledge anywhere, anytime without internet connectivity.
+          </p>
+</div>
+</section>
+<!-- Feature Highlight Badges (Bento Style) -->
+<section class="space-y-space-sm">
+<h3 class="text-label-md font-label-md text-on-surface-variant font-bold px-1 uppercase tracking-wider">App Highlights</h3>
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Highlight 1: 100% Private -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0 mr-3">
+<span class="material-symbols-outlined text-2xl" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-label-lg font-label-lg text-on-surface">100% Private</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">No login, accounts, or telemetry required</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Highlight 2: Zero Data Usage -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary flex-shrink-0 mr-3">
+<span class="material-symbols-outlined text-2xl" data-icon="flash_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">flash_on</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-label-lg font-label-lg text-on-surface">Zero Data Usage</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Pure local device storage with zero pings</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Highlight 3: 10,000+ Curated Questions -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container flex-shrink-0 mr-3">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-label-lg font-label-lg text-on-surface">10,000+ Curated Questions</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Spanning 12 academic subjects &amp; topics</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</section>
+<!-- Information Cards List -->
+<section class="space-y-space-sm">
+<h3 class="text-label-md font-label-md text-on-surface-variant font-bold px-1 uppercase tracking-wider">Legal &amp; Credits</h3>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-sm divide-y divide-outline-variant/30 overflow-hidden">
+<!-- Open Source & Licenses -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container/50 active:scale-[0.99] transition-all text-left" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="gavel">gavel</span>
+</div>
+<span class="text-label-lg font-label-lg text-on-surface">Open Source &amp; Licenses</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Privacy & Local Storage Policy -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container/50 active:scale-[0.99] transition-all text-left" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="shield">shield</span>
+</div>
+<span class="text-label-lg font-label-lg text-on-surface">Privacy &amp; Local Storage Policy</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Credits & Attributions -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container/50 active:scale-[0.99] transition-all text-left" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="attribution">attribution</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg text-on-surface block">Credits &amp; Attributions</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant block">Icons, Fonts, Question Curators</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- System Storage Diagnostic Mini-Pill -->
+<section class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="database">database</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Local SQLite Database</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">14.8 MB Installed</span>
+</section>
+<!-- Footer Section -->
+<footer class="text-center pt-space-md pb-space-sm space-y-1 mt-auto">
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center justify-center gap-1">
+          Crafted with 
+          <span class="material-symbols-outlined text-error text-sm align-middle" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span> 
+          for Flutter
+        </p>
+<p class="text-label-sm font-label-sm text-outline tracking-wide font-semibold">Completely Offline</p>
+</footer>
+</div>
+</main>
+</body></html>

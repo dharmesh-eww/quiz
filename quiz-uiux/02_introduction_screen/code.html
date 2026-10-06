@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuizMaster - Onboarding</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "headline-lg": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "headline-md": ["19px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-surface-variant selection:text-primary">
+<div class="w-full max-w-md mx-auto min-h-screen flex flex-col justify-between px-margin-mobile py-space-md sm:py-space-lg">
+<!-- Top Bar with Brand & Skip Action -->
+<header class="w-full flex items-center justify-between pt-space-xs">
+<div class="flex items-center space-x-space-xs">
+<div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">QuizMaster</span>
+</div>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-label-md font-label-md active:scale-95 transition-all duration-150">
+        Skip
+      </button>
+</header>
+<!-- Main Content Stage / Interactive Card Container -->
+<main class="w-full flex-1 flex flex-col items-center justify-center my-space-md">
+<!-- Educational Gamified Illustration Hero Card -->
+<div class="w-full relative flex items-center justify-center py-4">
+<!-- Ambient decorative glow elements -->
+<div class="absolute -top-3 -left-2 w-28 h-28 bg-surface-variant rounded-full blur-2xl opacity-60 pointer-events-none"></div>
+<div class="absolute -bottom-4 -right-2 w-32 h-32 bg-secondary-fixed rounded-full blur-2xl opacity-40 pointer-events-none"></div>
+<!-- The Central Showcase Bento Board -->
+<div class="w-full bg-surface-container-lowest rounded-3xl border border-outline-variant/40 shadow-sm p-space-md relative overflow-hidden flex flex-col items-center">
+<!-- Top Floating Micro Badges -->
+<div class="w-full flex justify-between items-center mb-space-md z-10">
+<!-- Streak/Fire badge -->
+<div class="flex items-center space-x-1 bg-secondary-fixed/50 px-3 py-1 rounded-full border border-secondary-container/30">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-secondary font-label-sm text-label-sm">Day 1 Streak</span>
+</div>
+<!-- Offline ready badge -->
+<div class="flex items-center space-x-1 bg-surface-container-high px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-base" data-icon="cloud_off">cloud_off</span>
+<span class="text-primary font-label-sm text-label-sm">100% Offline</span>
+</div>
+</div>
+<!-- Dynamic Illustrated Composition Canvas -->
+<div class="relative w-full h-56 flex items-center justify-center">
+<!-- Background Stacked Question Cards -->
+<div class="absolute w-52 h-32 bg-surface-container-high/60 rounded-2xl -rotate-6 transform -translate-y-2 border border-outline-variant/30"></div>
+<div class="absolute w-56 h-34 bg-surface-container/80 rounded-2xl rotate-3 transform translate-y-1 border border-outline-variant/40"></div>
+<!-- Foreground Active Knowledge Card -->
+<div class="relative w-64 bg-surface-container-lowest rounded-2xl p-4 shadow-md border border-outline-variant/50 flex flex-col space-y-3 z-10">
+<!-- Card Mini Header -->
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Question 01/10</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-label-sm font-label-sm">+50 XP</span>
+</div>
+<!-- Mini Prompt & Radiant Bulb -->
+<div class="flex items-center space-x-3">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/40 flex items-center justify-center text-secondary-container shadow-inner">
+<span class="material-symbols-outlined text-2xl text-secondary" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex-1">
+<div class="h-2.5 bg-surface-dim rounded-full w-3/4 mb-1.5"></div>
+<div class="h-2 bg-surface-container rounded-full w-1/2"></div>
+</div>
+</div>
+<!-- Interactive Simulated Answer Option -->
+<div class="w-full p-2 rounded-xl bg-surface-container-low border border-primary/40 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">A</div>
+<span class="text-label-sm font-label-sm text-on-surface">Photosynthesis</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Floating Decorative Topic Badges -->
+<div class="absolute -left-2 bottom-4 bg-surface-container-lowest shadow-md rounded-2xl p-2.5 border border-outline-variant/50 flex items-center space-x-1.5 z-20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="science" style="font-variation-settings: 'FILL' 1;">science</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Science</span>
+</div>
+<div class="absolute -right-2 top-4 bg-surface-container-lowest shadow-md rounded-2xl p-2.5 border border-outline-variant/50 flex items-center space-x-1.5 z-20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">History</span>
+</div>
+<div class="absolute right-6 -bottom-2 bg-surface-container-lowest shadow-md rounded-2xl p-2.5 border border-outline-variant/50 flex items-center space-x-1.5 z-20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-tertiary-container text-lg" data-icon="calculate" style="font-variation-settings: 'FILL' 1;">calculate</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Math</span>
+</div>
+</div>
+<!-- Bottom Visual Footer Indicator -->
+<div class="mt-4 pt-3 border-t border-surface-container w-full flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center space-x-1 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>10,000+ Curated Questions</span>
+</div>
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</div>
+<!-- Text Group: Headline and Subtitle -->
+<div class="w-full text-center mt-space-lg px-2">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight mb-2">
+          Test Your Knowledge
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-sm mx-auto leading-relaxed">
+          Challenge yourself with quizzes across science, math, history and more, fully offline without interruptions.
+        </p>
+</div>
+<!-- Dot Page Indicators (Step 1 active) -->
+<div aria-label="Page Indicator" class="flex items-center justify-center space-x-2 mt-space-lg">
+<!-- Active Pill (Dot 1) -->
+<div class="w-7 h-2.5 bg-primary rounded-full transition-all duration-300 shadow-sm shadow-primary/40"></div>
+<!-- Inactive Dot 2 -->
+<div class="w-2.5 h-2.5 bg-outline-variant/60 rounded-full hover:bg-outline transition-colors duration-200"></div>
+<!-- Inactive Dot 3 -->
+<div class="w-2.5 h-2.5 bg-outline-variant/60 rounded-full hover:bg-outline transition-colors duration-200"></div>
+</div>
+</main>
+<!-- Bottom Actions: Previous & Next CTA Buttons -->
+<footer class="w-full pt-space-xs pb-space-sm">
+<div class="w-full flex items-center space-x-space-md">
+<!-- Secondary 'Previous' Action -->
+<button class="flex-1 h-14 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-low active:scale-95 transition-all duration-150 focus:outline-none">
+          Previous
+        </button>
+<!-- Primary 'Next' Action -->
+<button class="flex-[1.8] h-14 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center space-x-2 shadow-lg shadow-primary/30 active:scale-95 transition-all duration-150 focus:outline-none">
+<span>Next</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

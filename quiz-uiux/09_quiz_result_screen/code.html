@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiz Result - QuizMaster</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "headline-lg": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "headline-md": ["19px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(12deg); }
+    }
+    .animate-float-slow {
+      animation: floatParticle 3.5s ease-in-out infinite;
+    }
+    .animate-float-fast {
+      animation: floatParticle 2.4s ease-in-out infinite reverse;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed font-body-md antialiased overflow-x-hidden">
+<!-- Top App Bar (Shared Component Anchor) -->
+<header class="bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none w-full sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+<button aria-label="Go Back" class="p-space-xs rounded-full text-on-surface hover:bg-surface-container dark:hover:bg-surface-variant hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-primary text-headline-md font-headline-md" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">QuizMaster</span>
+<div class="flex items-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed px-space-sm py-space-xs rounded-full active:scale-95 transition-transform duration-150 shadow-sm">
+<span class="material-symbols-outlined text-secondary-container" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-bold">5 Streak</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Optimized Mobile Thumb Zone & Bento Grid) -->
+<main class="w-full max-w-md mx-auto px-margin-mobile pt-space-md pb-space-xl flex-1 flex flex-col items-center relative">
+<!-- Ambient Confetti & Celebration Burst (Non-Punitive / Joyful) -->
+<div class="absolute inset-x-0 top-0 pointer-events-none overflow-hidden h-48 -z-10 flex justify-between px-space-lg">
+<span class="material-symbols-outlined text-secondary-container animate-float-slow opacity-80 text-xl" data-icon="celebration" data-weight="fill" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<span class="material-symbols-outlined text-primary-container animate-float-fast opacity-60 text-2xl mt-4" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary animate-float-slow opacity-70 text-lg mt-2" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+<span class="material-symbols-outlined text-secondary animate-float-fast opacity-75 text-xl" data-icon="hotel_class" data-weight="fill" style="font-variation-settings: 'FILL' 1;">hotel_class</span>
+</div>
+<!-- Trophy & Celebratory Header -->
+<div class="flex flex-col items-center text-center mt-space-xs mb-space-md">
+<div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-secondary-fixed shadow-md mb-space-sm">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="emoji_events" data-weight="fill" style="font-variation-settings: 'FILL' 1; font-size: 44px;">emoji_events</span>
+<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary shadow">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+</div>
+<h1 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl-mobile md:font-headline-xl text-on-surface tracking-tight">Quiz Complete!</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Foundations of Computational Logic</p>
+</div>
+<!-- Performance Message Badge -->
+<div class="inline-flex items-center gap-space-xs bg-secondary-fixed/50 border border-secondary-fixed-dim px-space-md py-space-xs rounded-full shadow-sm mb-space-lg">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-secondary-fixed font-bold">Great job! You're improving.</span>
+</div>
+<!-- Hero Score Display with SVG Circular Progress -->
+<div class="relative w-52 h-52 flex items-center justify-center my-space-xs">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 160 160">
+<!-- Background Track -->
+<circle class="text-surface-container" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<!-- Progress Active Track (80% = 440 * 0.8 = 352 fill, 440 circumference) -->
+<circle class="text-primary-container transition-all duration-1000 ease-out" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="88" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<!-- Central Score & Percentage -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-headline-xl font-headline-xl text-on-surface font-extrabold tracking-tight leading-none">8 / 10</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">QUESTIONS SOLVED</span>
+<div class="mt-2 bg-primary-fixed text-primary px-space-sm py-0.5 rounded-full font-label-md text-label-md font-bold shadow-sm">
+          80% Score
+        </div>
+</div>
+</div>
+<!-- Result Statistics Bento Grid (5 Cards) -->
+<section aria-label="Detailed Quiz Results" class="w-full grid grid-cols-6 gap-space-xs mt-space-lg mb-space-xl">
+<!-- Card 1: Correct Answers (2 cols) -->
+<div class="col-span-2 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:border-tertiary transition-colors">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Correct</span>
+<div class="w-6 h-6 rounded-full bg-tertiary-container/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-sm font-bold" data-icon="check">check</span>
+</div>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-bold text-tertiary">8</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 10</span>
+</div>
+</div>
+<!-- Card 2: Incorrect Answers (2 cols) -->
+<div class="col-span-2 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:border-error transition-colors">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Incorrect</span>
+<div class="w-6 h-6 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-sm font-bold" data-icon="close">close</span>
+</div>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-bold text-error">2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 10</span>
+</div>
+</div>
+<!-- Card 3: Skipped (2 cols) -->
+<div class="col-span-2 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Skipped</span>
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="horizontal_rule">horizontal_rule</span>
+</div>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-bold text-outline">0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">items</span>
+</div>
+</div>
+<!-- Card 4: Accuracy (3 cols) -->
+<div class="col-span-3 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-md flex items-center gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="target" data-weight="fill" style="font-variation-settings: 'FILL' 1;">target</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+<span class="text-headline-md font-headline-md font-bold text-on-surface">80%</span>
+</div>
+</div>
+<!-- Card 5: Time Taken (3 cols) -->
+<div class="col-span-3 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-md flex items-center gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface text-headline-md" data-icon="timer">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Time Taken</span>
+<span class="text-headline-md font-headline-md font-bold text-on-surface">06:42</span>
+</div>
+</div>
+</section>
+<!-- Action Buttons Stack (Ergonomic Thumb Reach) -->
+<div class="w-full flex flex-col gap-space-sm mt-auto">
+<!-- Primary Action: Review Answers -->
+<button class="w-full h-14 bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-lg hover:bg-primary-container active:scale-95 transition-all duration-150 flex items-center justify-center gap-space-xs" type="button">
+<span>Review Answers</span>
+<span class="material-symbols-outlined text-label-lg font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Action: Try Again -->
+<button class="w-full h-13 py-space-sm bg-surface-container-lowest border border-outline-variant text-on-surface font-label-lg text-label-lg rounded-full hover:bg-surface-container active:scale-95 transition-all duration-150 flex items-center justify-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-label-lg" data-icon="replay">replay</span>
+<span>Try Again</span>
+</button>
+<!-- Tertiary / Text Action: Back to Home -->
+<button class="w-full py-space-xs text-on-surface-variant hover:text-primary font-label-md text-label-md active:scale-95 transition-all duration-150 flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-base" data-icon="home">home</span>
+<span>Back to Home</span>
+</button>
+</div>
+</main>
+<script>
+    // Lightweight celebratory trigger
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Quiz Result Screen Loaded: 8/10 Correct');
+    });
+  </script>
+</body></html>

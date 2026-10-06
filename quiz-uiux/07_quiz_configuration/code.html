@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customize Your Quiz - QuizMaster</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "headline-lg": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "headline-md": ["19px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Shared Component: TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none w-full">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+<button aria-label="Go back" class="p-space-xs rounded-full hover:bg-surface-container dark:hover:bg-surface-variant hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150 flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">QuizMaster</span>
+<div class="flex items-center space-x-1 px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-secondary" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-secondary">7</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Single column, mobile-first thumb-friendly layout) -->
+<main class="flex-1 w-full max-w-md mx-auto px-margin-mobile pt-space-md pb-36 flex flex-col gap-y-space-lg">
+<!-- Title & Subtitle Area -->
+<section class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider">Screen 7 of 15</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Step 2 / 3</span>
+</div>
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface">Customize Your Quiz</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Fine-tune your session settings</p>
+</section>
+<!-- Context Banner: Subject & Topic -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-primary" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Subject &amp; Domain</span>
+<p class="text-headline-md font-headline-md text-on-surface">Science • Biology</p>
+</div>
+</div>
+<button class="text-label-md font-label-md text-primary hover:text-primary-container p-space-xs font-semibold flex items-center gap-1 active:scale-95 transition-transform" type="button">
+        Edit
+        <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<!-- Setting Section 1: Number of Questions -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<h2 class="text-label-lg font-label-lg text-on-surface">Number of Questions</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Quick session: ~8 min</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<!-- Chip 5 -->
+<button class="h-14 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex flex-col items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-lg font-label-lg font-bold">5</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant text-[11px]">Sprint</span>
+</button>
+<!-- Chip 10 (Selected) -->
+<button class="h-14 rounded-xl bg-surface-container-high border-2 border-primary text-primary shadow-sm flex flex-col items-center justify-center ring-2 ring-primary/20 active:scale-95 transition-all" type="button">
+<span class="text-label-lg font-label-lg font-extrabold text-primary">10</span>
+<span class="text-label-sm font-label-sm text-primary font-semibold text-[11px]">Standard</span>
+</button>
+<!-- Chip 15 -->
+<button class="h-14 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex flex-col items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-lg font-label-lg font-bold">15</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant text-[11px]">Extended</span>
+</button>
+<!-- Chip 20 -->
+<button class="h-14 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex flex-col items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-lg font-label-lg font-bold">20</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant text-[11px]">Marathon</span>
+</button>
+</div>
+</section>
+<!-- Setting Section 2: Difficulty -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<h2 class="text-label-lg font-label-lg text-on-surface">Difficulty</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Adaptive blend</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Easy -->
+<button class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/80 flex items-center justify-between text-left active:scale-95 transition-all hover:border-outline" type="button">
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-tertiary-fixed-dim border border-tertiary inline-block"></span>
+<div>
+<span class="text-label-md font-label-md text-on-surface block">Easy</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">+50 XP/q</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">🟢</span>
+</button>
+<!-- Medium -->
+<button class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/80 flex items-center justify-between text-left active:scale-95 transition-all hover:border-outline" type="button">
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-secondary-fixed-dim border border-secondary inline-block"></span>
+<div>
+<span class="text-label-md font-label-md text-on-surface block">Medium</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">+100 XP/q</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">🟡</span>
+</button>
+<!-- Hard -->
+<button class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/80 flex items-center justify-between text-left active:scale-95 transition-all hover:border-outline" type="button">
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-error-container border border-error inline-block"></span>
+<div>
+<span class="text-label-md font-label-md text-on-surface block">Hard</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">+200 XP/q</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">🔴</span>
+</button>
+<!-- Mixed (Selected) -->
+<button class="p-3 rounded-xl bg-surface-container-high border-2 border-primary flex items-center justify-between text-left shadow-sm ring-2 ring-primary/20 active:scale-95 transition-all" type="button">
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-primary border border-inverse-primary inline-block"></span>
+<div>
+<span class="text-label-md font-label-md text-primary font-bold block">Mixed</span>
+<span class="text-body-sm font-body-sm text-primary font-medium text-[11px]">Dynamic blend</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">🟣</span>
+</button>
+</div>
+</section>
+<!-- Setting Section 3: Quiz Mode -->
+<section class="flex flex-col gap-space-sm">
+<h2 class="text-label-lg font-label-lg text-on-surface">Quiz Mode</h2>
+<div class="grid grid-cols-2 gap-2 p-1 bg-surface-container rounded-xl">
+<!-- Practice Mode -->
+<button class="py-3 px-2 rounded-lg text-center flex flex-col items-center gap-1 text-on-surface-variant active:scale-95 transition-all" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="school">school</span>
+<span class="text-label-md font-label-md">Practice</span>
+</div>
+<span class="text-body-sm font-body-sm text-[11px] text-on-surface-variant leading-tight">Untimed, instant feedback</span>
+</button>
+<!-- Timed Quiz (Selected) -->
+<button class="py-3 px-2 rounded-lg bg-surface-container-lowest text-primary shadow-sm border border-outline-variant/40 text-center flex flex-col items-center gap-1 active:scale-95 transition-all" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="timer">timer</span>
+<span class="text-label-md font-label-md font-bold text-primary">Timed Quiz</span>
+</div>
+<span class="text-body-sm font-body-sm text-[11px] text-primary font-medium leading-tight">Countdown challenge</span>
+</button>
+</div>
+</section>
+<!-- Setting Section 4: Timer Duration -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<h2 class="text-label-lg font-label-lg text-on-surface">Timer Duration</h2>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm bg-tertiary-fixed text-on-tertiary-fixed">Enabled</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">1 min per question</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<!-- 5 mins -->
+<button class="h-12 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-md font-label-md">5 mins</span>
+</button>
+<!-- 10 mins (Selected) -->
+<button class="h-12 rounded-xl bg-surface-container-high border-2 border-primary text-primary font-bold shadow-sm ring-2 ring-primary/20 flex items-center justify-center active:scale-95 transition-all" type="button">
+<span class="text-label-md font-label-md text-primary font-bold">10 mins</span>
+</button>
+<!-- 15 mins -->
+<button class="h-12 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-md font-label-md">15 mins</span>
+</button>
+<!-- No limit -->
+<button class="h-12 rounded-xl bg-surface-container-lowest border border-outline-variant/80 text-on-surface flex items-center justify-center active:scale-95 transition-all hover:border-primary" type="button">
+<span class="text-label-md font-label-md text-on-surface-variant">No limit</span>
+</button>
+</div>
+</section>
+<!-- Summary Box -->
+<div class="bg-surface-container rounded-xl p-space-md border border-outline-variant/50 flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-base" data-icon="tune">tune</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wide">Session Overview</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface font-semibold">
+        Science • Biology • 10 Questions • Mixed Difficulty • 10 Mins
+      </p>
+<div class="flex items-center gap-4 pt-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="bolt">bolt</span> Max +1,000 XP
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="verified">verified</span> Streak Safe
+        </span>
+</div>
+</div>
+</main>
+<!-- Anchored Primary CTA Footbar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest/95 backdrop-blur-md z-40 border-t border-outline-variant/30 py-space-sm px-margin-mobile">
+<div class="max-w-md mx-auto w-full">
+<button class="w-full h-14 bg-primary text-on-primary rounded-full font-label-lg text-label-lg shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:bg-primary-container active:scale-[0.98] transition-all duration-150" type="button">
+<span>Start Quiz 🚀</span>
+</button>
+</div>
+</div>
+</body></html>

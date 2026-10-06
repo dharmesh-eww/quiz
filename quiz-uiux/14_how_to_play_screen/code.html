@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuizMaster - How to Play</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#c0c1ff",
+            "surface-tint": "#494bd6",
+            "on-secondary-fixed": "#2a1700",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-fixed-variant": "#653e00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-container": "#00885d",
+            "secondary-container": "#fea619",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "error-container": "#ffdad6",
+            "tertiary": "#006c49",
+            "on-surface-variant": "#464554",
+            "primary-container": "#6063ee",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#d2d9f4",
+            "outline": "#767586",
+            "primary-fixed": "#e1e0ff",
+            "primary": "#4648d4",
+            "secondary": "#855300",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#684000",
+            "secondary-fixed": "#ffddb8",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "background": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-background": "#131b2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-md": ["19px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile viewport wrapper (max-w-md matching the mobile app ecosystem shell) -->
+<div class="w-full max-w-md flex flex-col min-h-screen bg-background relative pb-28">
+<!-- Top App Bar (Task-focused instructional view with Back navigation) -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container dark:hover:bg-surface-variant hover:text-primary dark:hover:text-inverse-primary active:scale-95 transition-transform duration-150" onclick="window.history.back()">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">How to Play</h1>
+<div class="flex items-center gap-1 bg-surface-container-high px-2.5 py-1 rounded-full text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px] text-secondary-container material-symbols-fill">local_fire_department</span>
+<span class="font-bold">3d</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin-mobile pt-space-md space-y-space-md">
+<!-- Hero Introduction Bento Card -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-container to-primary text-on-primary-container p-space-lg shadow-sm border border-outline-variant/30">
+<div class="relative z-10 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-label-sm font-label-sm text-on-primary">
+<span class="material-symbols-outlined text-[16px]">school</span>
+              Beginner Guide
+            </span>
+<div class="flex items-center space-x-1 text-white/90">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">menu_book</span>
+<span class="text-sm font-bold opacity-60">+</span>
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">sports_esports</span>
+</div>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile font-bold tracking-tight text-on-primary mt-1">Master the game in 6 simple steps</h2>
+<p class="text-body-md font-body-md text-on-primary/80">Everything you need to know to practice smart, build momentum, and top the weekly leaderboards.</p>
+</div>
+<!-- Decorative subtle background accents -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+<div class="absolute -left-6 -top-6 w-24 h-24 rounded-full bg-black/10 blur-lg pointer-events-none"></div>
+</section>
+<!-- Step-by-Step Instruction Cards -->
+<section aria-label="Step by step instructions" class="space-y-space-sm">
+<!-- Step 1 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            1
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Choose a Subject</h3>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="category">category</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Select from Mathematics, Science, History, and more tailored learning tracks.</p>
+</div>
+</article>
+<!-- Step 2 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            2
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Customize Your Quiz</h3>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="tune">tune</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Pick your question count, difficulty tier, and timed or untimed session preferences.</p>
+</div>
+</article>
+<!-- Step 3 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            3
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Answer Questions</h3>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="touch_app">touch_app</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Tap one of the 4 text choices before time expires to keep your combo multiplier alive.</p>
+</div>
+</article>
+<!-- Step 4 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            4
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Instant Feedback</h3>
+<span class="material-symbols-outlined text-[20px] text-tertiary material-symbols-fill" data-icon="check_circle">check_circle</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Learn immediately from clear, bite-sized explanations on both correct and missed responses.</p>
+</div>
+</article>
+<!-- Step 5 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            5
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Review Your Results</h3>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="insights">insights</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Inspect your final score, completion speed, accuracy percentage, and full topic breakdowns.</p>
+</div>
+</article>
+<!-- Step 6 -->
+<article class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm transition-all hover:border-primary/50 active:scale-[0.99]">
+<div class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-md font-bold shadow-xs">
+            6
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="text-headline-md font-headline-md font-semibold text-on-surface">Track Improvement</h3>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Watch your subject mastery badges grow over time in your comprehensive Stats and History tabs.</p>
+</div>
+</article>
+</section>
+<!-- Quick Tips Callout Banner -->
+<aside class="flex items-start gap-3 p-space-md rounded-xl bg-surface-container-high/60 border border-outline-variant/50">
+<span class="text-xl flex-shrink-0 leading-none mt-0.5">💡</span>
+<div class="text-body-sm font-body-sm text-on-surface leading-snug">
+<strong class="font-bold text-on-surface font-label-md">Tip:</strong> You can practice untimed quizzes to study at your own pace without pressure.
+        </div>
+</aside>
+</main>
+<!-- Floating Sticky Bottom CTA Container -->
+<footer class="fixed bottom-0 left-0 w-full z-30 pointer-events-none">
+<div class="max-w-md mx-auto px-margin-mobile pb-space-md pt-space-xs pointer-events-auto bg-gradient-to-t from-background via-background/95 to-transparent">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-label-lg rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95 transition-all duration-150 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+<span>Try a Practice Quiz</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>
